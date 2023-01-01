@@ -1,0 +1,25 @@
+<div class="login">
+  <div class="container">
+    <div class="row">
+      <div class="pt-5 mx-auto p-3 border mt-5" style="max-width: 700px; width: 80%;">
+        <h2 class="mb-5 text-center">Login here</h2>
+        <form [formGroup]="loginForm">
+          <div class="form-group" [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">
+            <input type="email" formControlName="email" class="form-control" placeholder="email">
+          </div>
+          <small class="text-danger" *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">*email is required!</small>
+          <div class="form-group"  [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+            <input [type]="type" formControlName="password" class="form-control" placeholder="password">
+            <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+          </div>
+          <small class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*password is required!</small>
+          <div class="form-group">
+            <a href="#" id="forget">Forget password?</a>
+          </div>
+          <button (click)="onLogin()" type="submit" class="btn btn-primary w-100 mt-3 mb-4">Login</button>
+          <a routerLink="/signup" class="text-center w-100 d-block">don't have an account then click here!</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
